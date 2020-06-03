@@ -1,21 +1,34 @@
-const addTaskTrigger = document.getElementsByClassName('js-addTask-trigger')[0];
-const addTaskTarget = document.getElementsByClassName('js-addTask-target')[0];
-const addTaskValue = document.getElementsByClassName('js-addTask-value')[0];
-const removeTask = removeButton => {
-  const targetTask = removeButton.closest('li');
-  addTaskTarget.removeChild(targetTask);
-};
-const addTask = task => {
-  const listItem = document.createElement('li');
-  const removeButton = document.createElement('button');
-  removeButton.innerText = '削除';
-  removeButton.addEventListener('click', () => removeTask(removeButton));
-  listItem.innerText = task;
-  listItem.append(removeButton);
-  addTaskTarget.appendChild(listItem);
-};
-addTaskTrigger.addEventListener('click', event => {
-  const task = addTaskValue.value;
-  addTask(task);
-  addTaskValue.value = '';
+var app = new Vue({
+  el: '#app',
+  data: {
+      addText: '',
+      list: [],
+      absolute: 0,
+  },
+  methods: {
+      addToDo() {
+          if (this.addText) {
+              this.list.unshift({
+                  'text': this.addText,
+                  'id': this.absolute + 1
+              });
+              this.addText = '';
+              this.absolute++;
+          }
+      },
+      deleteToDo(id) {
+          var deleteIndex = '';
+          var check = confirm('本当に削除しますか？');
+          if (check === true) { 
+              this.list.some(function (value, index) {
+                  if (value.id === id) {
+                      deleteIndex = index;
+                  }
+              });
+              this.list.splice(deleteIndex, 1);
+          }
+      },
+      editToDo() {
+      }
+  }
 });
