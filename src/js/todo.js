@@ -28,7 +28,5 @@ var app = new Vue({
               this.list.splice(deleteIndex, 1);
           }
       },
-      editToDo() {
-      }
   }
 });

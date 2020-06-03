@@ -14,7 +14,7 @@
         <h2>現在登録されている予定</h2> 
         <ul v-for="todo in list">
             <li>{{ todo.text }}
-                <button @click="deleteToDo(todo.id)">削除</button>
+                <button v-on:click="deleteToDo(todo.id)">削除</button>
             </li>
         </ul>
     </div>
