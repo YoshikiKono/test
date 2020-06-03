@@ -1,0 +1,6 @@
+作業フォルダ(ヨシキの場合は C:\Users\kono\home\src)
+┗index.html
+┗js
+　┗todo.js
+
+にてファイル&フォルダを設定した上で動作する
