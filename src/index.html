@@ -1,23 +1,45 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <title>ToDo app</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <meta charset="utf-8">
+  <title>ToDo app</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
     <div id="app">
-      <h1>Todo List</h1>
-        <input type="text" v-model="addText" required placeholder="予定を入力">
-        <button @click="addToDo()">登録</button>
-        <hr>
-        <h2>現在登録されている予定</h2> 
-        <ul v-for="todo in list" :key="todo.id">
-            <li>{{ todo.text }}
-                <button @click="deleteToDo(todo.id)">削除</button>
-            </li>
-        </ul>
+      <v-app>
+        <v-container>
+          <h1>Todo List</h1>
+          <v-row>
+            <v-col cols=5>
+              <v-text-field 
+                label="予定を入力" 
+                :value="addText" 
+                @change="value => addText = value">
+              </v-text-field>
+            </v-col>
+            <v-col>
+              <v-btn rounded color="primary" @click="addToDo($event)">登録</v-btn>
+            </v-col>
+          </v-row>
+          
+          <h2>現在登録されている予定</h2>
+          <v-row >
+            <v-col>
+              <li style="margin: 10px;" v-for="todo in list" :key="todo.id">
+              {{todo.text}}
+              <v-btn color="error" @click="deleteToDo(todo.id)">削除</v-btn>
+              </li>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-app>
     </div>
-    <script src="js/todo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script type="text/javascript"src="js/todo.js"></script>
 </body>
 </html>
