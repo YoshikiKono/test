@@ -1,0 +1,24 @@
+作業フォルダ(ヨシキの場合は C:\Users\kono\home\ToDo)
+┗.nuxt
+┗ assets
+┗ components
+┗ layouts
+┗ middleware
+┗ node_modules
+┗ pages
+┗ plugins
+┗ static
+┗ store
+.editorconfig
+.gitignore
+nuxt.config
+package.json
+yarn.lock
+
+の状態にしておく
+
+コマンドプロンプトで作業フォルダまで移動して
+
+yarn dev
+
+でlocalhost3000が立ち上がれば見られる
