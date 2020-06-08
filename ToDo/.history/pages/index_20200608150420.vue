@@ -1,0 +1,38 @@
+<template>
+  <section class="container">
+    <h1>Todo List</h1>
+    <input type="text" name="content" v-model="content"/>
+    <div>
+      <v-btn rounded color="primary" @click="insert">登録</v-btn>
+    </div>
+    <ul>
+      <li v-for="(todo, index) in todos" :key="index">
+        <span>{{ todo.content }}</span><span>({{ todo.created }})</span><span @click="deleteTodo(todo)">×</span>
+      </li>
+    </ul>
+  </section>
+</template>
+
+<script>
+import {mapState} from 'vuex';
+
+export default {
+  data: function() {
+    return {
+      content: '',
+    }
+  },
+  computed: {
+    ...mapState(['todos']),
+  },
+  methods: {
+    insert: function() {
+      this.$store.commit('insert', {content: this.content});
+      this.content = '';
+    },
+    deleteTodo: function(todo) {
+      this.$store.commit('deleteTodo', todo)
+    }
+  }
+}
+</script>

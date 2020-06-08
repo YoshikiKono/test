@@ -1,0 +1,38 @@
+.container {
+    width: 400px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32pt;
+}
+
+input {
+    width: 300px;
+    margin: 20px;
+    padding: 8px 4px;
+    font-size: 16pt;
+}
+
+button {
+    margin: 0 10px;
+    padding: 4px 8px;
+    font-size: 10pt;
+}
+
+ul {
+    margin-top: 20px;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    margin: 5px 0;
+    font-size: 14pt;   
+}
+
+span {
+    margin: 0 5px;
+}
